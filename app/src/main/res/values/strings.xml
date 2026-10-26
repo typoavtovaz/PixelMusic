@@ -74,4 +74,6 @@
     <string name="library_tab_albums">Albums</string>
     <string name="library_tab_artists">Artists</string>
     <string name="song_info_tone_success">Success</string>
+    <string name="tile_shuffle_all">Shuffle all</string>
+    <string name="tile_last_playlist">Last playlist</string>
 </resources>
