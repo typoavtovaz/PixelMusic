@@ -76,4 +76,13 @@
     <string name="song_info_tone_success">Success</string>
     <string name="tile_shuffle_all">Shuffle all</string>
     <string name="tile_last_playlist">Last playlist</string>
+    <string name="shortcut_shuffle_long">Shuffle all songs</string>
+    <string name="shortcut_shuffle_short">Shuffle</string>
+    <string name="shortcut_playlist_long">Last played playlist</string>
+    <string name="shortcut_playlist_short">Playlist</string>
+    <string name="widget_bar_4x1_desc">4x1 Player bar widget</string>
+    <string name="widget_control_4x2_desc">4x2 Control widget</string>
+    <string name="widget_grid_2x2_desc">2x2 Grid widget</string>
+    <string name="glance_widget_description">PixelMusic player widget</string>
+
 </resources>
