@@ -53,7 +53,7 @@
 
     <string name="sync_scanning">Scanning music files…</string>
     <string name="sync_processing">Processing files…</string>
-    <string name="sync_files_progress">%1$d of %2$d files</string>
+    <string name="sync_files_progress">%1$d of \%2$d files</string>
     <string name="sync_in_progress">Syncing library…</string>
     <string name="sync_complete">Sync complete</string>
     <string name="sync_pending">Waiting…</string>
@@ -152,7 +152,7 @@
     <string name="cast_server_channel_name">Cast media server</string>
     <string name="cast_server_notification_title">Casting to device</string>
     <string name="cast_server_notification_text">Serving media to Cast device</string>
-    <string name="cast_server_foreground_error">%1$s: %2$s</string>
+    <string name="cast_server_foreground_error">%1$s: \%2$s</string>
 
     <!-- Backup / data transfer (ViewModels) -->
     <string name="backup_invalid_format">Invalid backup: %1$s</string>
@@ -181,15 +181,15 @@
     <string name="player_queue_name_selected_albums">Selected Albums</string>
     <string name="player_no_playable_songs_in_albums">No playable songs found in selected albums</string>
     <string name="player_only_first_n_albums_queued">Only the first %1$d albums were queued</string>
-    <string name="player_albums_queued_format">%1$d albums queued (%2$d songs)</string>
+    <string name="player_albums_queued_format">%1$d albums queued (\%2$d songs)</string>
     <string name="player_could_not_queue_albums">Could not queue selected albums</string>
     <string name="player_all_songs_already_in_favorites">All songs already in favorites</string>
     <string name="player_no_songs_were_in_favorites">No songs were in favorites</string>
     <string name="player_creating_zip">Creating ZIP file…</string>
     <string name="player_share_zip_failed_format">Failed to share: %1$s</string>
     <string name="player_cannot_delete_currently_playing">Cannot delete currently playing song</string>
-    <string name="player_batch_delete_files_deleted_skipped_format">%1$d files deleted (%2$d skipped - playing)</string>
-    <string name="player_batch_delete_partial_format">%1$d of %2$d files deleted</string>
+    <string name="player_batch_delete_files_deleted_skipped_format">%1$d files deleted (\%2$d skipped - playing)</string>
+    <string name="player_batch_delete_partial_format">%1$d of \%2$d files deleted</string>
     <string name="player_delete_files_failed">Failed to delete files</string>
     <string name="player_file_deleted">File deleted</string>
     <string name="player_delete_file_not_found">Can\'t delete the file or file not found</string>
@@ -211,7 +211,7 @@
     <string name="sleep_timer_set_for_minutes_toast">Timer set for %1$d minutes.</string>
     <string name="sleep_timer_cancelled_toast">Timer cancelled.</string>
     <string name="sleep_timer_eot_no_song_toast">Cannot enable end of track: no active song.</string>
-    <string name="sleep_timer_eot_song_changed_toast">End of track timer deactivated: song changed from %1$s to %2$s.</string>
+    <string name="sleep_timer_eot_song_changed_toast">End of track timer deactivated: song changed from %1$s to \%2$s.</string>
     <string name="sleep_timer_eot_stop_at_end_toast">Playback will stop at end of track.</string>
     <string name="sleep_timer_label_previous_track">Previous track</string>
     <string name="sleep_timer_label_current_track">Current track</string>
@@ -226,7 +226,7 @@
     <string name="cd_switch_on">Switch on</string>
     <string name="ui_format_percent_d">%1$d%%</string>
     <string name="backup_manifest_schema_v">v%1$d</string>
-    <string name="backup_manifest_device_line">%1$s %2$s</string>
+    <string name="backup_manifest_device_line">%1$s \%2$s</string>
 
     <!-- Share Bottom Sheet -->
     <string name="share_sheet_title">Share</string>
@@ -243,7 +243,7 @@
     <string name="share_action_copy_github_link">Copy App Link</string>
     <string name="share_card_saved">Card saved to Pictures</string>
     <string name="share_link_copied">Link copied to clipboard</string>
-    <string name="share_text_format">Now listening to \"%1$s\" by %2$s 🎵\n%3$s</string>
+    <string name="share_text_format">Now listening to \"%1$s\" by %2$s 🎵\n\%3$s</string>
 
     <!-- Player Share / Options Menu -->
     <string name="player_menu_share_card">Share Story Card</string>
@@ -264,7 +264,7 @@
     <string name="cloud_downloads_active_section">Queued and downloading</string>
     <string name="cloud_downloads_failed_section">Failed</string>
     <string name="cloud_downloads_completed_section">Completed</string>
-    <string name="cloud_downloads_section_count">%1$s · %2$d</string>
+    <string name="cloud_downloads_section_count">%1$s · \%2$d</string>
     <string name="cloud_downloads_unknown_track">Unknown track</string>
     <string name="cloud_downloads_downloaded_size">Downloaded · %1$s</string>
     <string name="cloud_downloads_failed_fallback">Download failed</string>
@@ -282,14 +282,13 @@
     <string name="cloud_download_play_all">Play all</string>
     <string name="cloud_download_shuffle_all">Shuffle all</string>
     <string name="in_your_library">In your library</string>
+
     <string name="language_zh_rCN">Chinese (Simplified)</string>
     <string name="lyrics_remote_disabled">Remote lyrics disabled</string>
-    <string name="service_processing_action">Processing...</string>
     <string name="close_notification_player">Close player</string>
     <string name="tile_last_playlist_unavailable">Playlist unavailable</string>
     <string name="show">Show</string>
     <string name="cd_play_selected_albums">Play selected albums</string>
-    <string name="play_playback">Play</string>
     <string name="cd_play_selected_albums_next">Play selected albums next</string>
     <string name="cd_add_selected_albums_to_queue">Add selected albums to queue</string>
     <string name="backup_manifest_schema_v">Schema version %d</string>
@@ -316,19 +315,4 @@
     <string name="batch_edit_info_message">Editing multiple tracks</string>
     <string name="batch_edit_mixed_values">&lt;Mixed values&gt;</string>
     <string name="batch_edit_optional">Optional</string>
-    <string name="batch_edit_cover_art_heading">Cover Art</string>
-    <string name="batch_edit_multiple_covers">Multiple covers selected</string>
-    <string name="batch_edit_cover_art_hint">Tap to change cover art</string>
-    <string name="batch_edit_set_cover_art">Set Cover Art</string>
-    <string name="batch_edit_remove_all_art">Remove All Art</string>
-    <string name="edit_song_custom_metadata_heading">Custom Metadata</string>
-    <string name="edit_song_custom_metadata_description">Add custom tags to track</string>
-    <string name="edit_song_rating">Rating</string>
-    <string name="edit_song_rating_not_set">Not set</string>
-    <string name="edit_song_custom_field_name">Field Name</string>
-    <string name="edit_song_custom_field_value">Field Value</string>
-    <string name="edit_song_remove_custom_field">Remove Field</string>
-    <string name="edit_song_add_custom_field">Add Field</string>
-    <string name="edit_song_custom_metadata_formats">Supported formats</string>
-    <string name="edit_song_custom_metadata_invalid">Invalid metadata</string>
-</resources>
+    <string name="batch_edit_cover_art_heading">Cover Art</string
