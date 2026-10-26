@@ -1,4 +1,4 @@
-package com.unshoo.pixelmusic
+package com.unshoo.pixelmusic.di
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
