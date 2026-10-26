@@ -1,4 +1,4 @@
-﻿package com.unshoo.pixelmusic.di
+package com.unshoo.pixelmusic.di
 
 import android.content.Context
 import androidx.annotation.OptIn
@@ -67,7 +67,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -320,7 +319,6 @@ object AppModule {
             artistImageRepository = artistImageRepository,
             folderTreeBuilder = folderTreeBuilder
         )
-
     }
 
     @Provides
@@ -349,10 +347,6 @@ object AppModule {
         return SongMetadataEditor(context, musicDao, userPreferencesRepository)
     }
 
-    /**
-     * Provides a singleton OkHttpClient instance with logging and a User-Agent interceptor.
-     * Retry logic with backoff is handled in coroutine-based callers.
-     */
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
@@ -377,27 +371,24 @@ object AppModule {
             timeUnit = java.util.concurrent.TimeUnit.SECONDS
         )
         
-        return OkHttpClient.Builder()
-            .connectionPool(connectionPool)
-            .connectTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
-            .readTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
-            .writeTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
-            .retryOnConnectionFailure(true)
-            .addInterceptor { chain ->
-                val originalRequest = chain.request()
-                val requestWithUserAgent = originalRequest.newBuilder()
-                    .header("User-Agent", "PixelMusic/1.0 (Android; Music Player)")
-                    .build()
-                chain.proceed(requestWithUserAgent)
-            }
-            .addInterceptor(loggingInterceptor)
-            .build()
+        return DpiBypass.applyTo(
+            OkHttpClient.Builder()
+                .connectionPool(connectionPool)
+                .connectTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
+                .readTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
+                .writeTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .addInterceptor { chain ->
+                    val originalRequest = chain.request()
+                    val requestWithUserAgent = originalRequest.newBuilder()
+                        .header("User-Agent", "PixelMusic/1.0 (Android; Music Player)")
+                        .build()
+                    chain.proceed(requestWithUserAgent)
+                }
+                .addInterceptor(loggingInterceptor)
+        ).build()
     }
 
-    /**
-     * Provides an OkHttpClient instance with timeouts for lyrics searches.
-     * Includes DNS resolver, modern TLS, connection pool, and connection retry.
-     */
     @Provides
     @Singleton
     @FastOkHttpClient
@@ -431,33 +422,31 @@ object AppModule {
             }
         }
 
-        return OkHttpClient.Builder()
-            .dns(dns)
-            .connectionPool(connectionPool)
-            .protocols(listOf(okhttp3.Protocol.HTTP_1_1))
-            .connectionSpecs(listOf(
-                okhttp3.ConnectionSpec.MODERN_TLS,
-                okhttp3.ConnectionSpec.COMPATIBLE_TLS
-            ))
-            .connectTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
-            .readTimeout(15, java.util.concurrent.TimeUnit.SECONDS)
-            .writeTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
-            .retryOnConnectionFailure(true)
-            .addInterceptor { chain ->
-                val originalRequest = chain.request()
-                val requestWithHeaders = originalRequest.newBuilder()
-                    .header("User-Agent", "PixelMusic/1.0 (Android; Music Player)")
-                    .header("Accept", "application/json")
-                    .build()
-                chain.proceed(requestWithHeaders)
-            }
-            .addInterceptor(loggingInterceptor)
-            .build()
+        return DpiBypass.applyTo(
+            OkHttpClient.Builder()
+                .dns(dns)
+                .connectionPool(connectionPool)
+                .protocols(listOf(okhttp3.Protocol.HTTP_1_1))
+                .connectionSpecs(listOf(
+                    okhttp3.ConnectionSpec.MODERN_TLS,
+                    okhttp3.ConnectionSpec.COMPATIBLE_TLS
+                ))
+                .connectTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
+                .readTimeout(15, java.util.concurrent.TimeUnit.SECONDS)
+                .writeTimeout(8, java.util.concurrent.TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .addInterceptor { chain ->
+                    val originalRequest = chain.request()
+                    val requestWithHeaders = originalRequest.newBuilder()
+                        .header("User-Agent", "PixelMusic/1.0 (Android; Music Player)")
+                        .header("Accept", "application/json")
+                        .build()
+                    chain.proceed(requestWithHeaders)
+                }
+                .addInterceptor(loggingInterceptor)
+        ).build()
     }
 
-    /**
-     * Provides a singleton Retrofit instance for the LRCLIB API.
-     */
     @Provides
     @Singleton
     fun provideRetrofit(@FastOkHttpClient okHttpClient: OkHttpClient): Retrofit {
@@ -468,18 +457,12 @@ object AppModule {
             .build()
     }
 
-    /**
-     * Provides a singleton instance of the LRCLIB API service.
-     */
     @Provides
     @Singleton
     fun provideLrcLibApiService(retrofit: Retrofit): LrcLibApiService {
         return retrofit.create(LrcLibApiService::class.java)
     }
 
-    /**
-     * Provides a Retrofit instance for the Deezer API.
-     */
     @Provides
     @Singleton
     @DeezerRetrofit
@@ -491,18 +474,12 @@ object AppModule {
             .build()
     }
 
-    /**
-     * Provides the Deezer API service.
-     */
     @Provides
     @Singleton
     fun provideDeezerApiService(@DeezerRetrofit retrofit: Retrofit): DeezerApiService {
         return retrofit.create(DeezerApiService::class.java)
     }
 
-    /**
-     * Provides the artist image repository.
-     */
     @Provides
     @Singleton
     fun provideArtistImageRepository(
