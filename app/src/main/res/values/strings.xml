@@ -66,7 +66,6 @@
     <string name="unknown_artist">Unknown artist</string>
     <string name="unknown_album">Unknown album</string>
 
-    <!-- Добавленные строки для устранения ошибок сборки -->
     <string name="sync_failed_toast">Sync failed</string>
     <string name="sync_preparing_library">Preparing library...</string>
     <string name="sync_scanned_count">Scanned: %d</string>
@@ -75,6 +74,9 @@
     <string name="library_tab_artists">Artists</string>
     <string name="song_info_tone_success">Success</string>
     <string name="tile_shuffle_all">Shuffle all</string>
+    <string name="tile_play_random">Play random</string>
+    <string name="tile_favorites">Favorites</string>
+    <string name="tile_history">History</string>
     <string name="tile_last_playlist">Last playlist</string>
     <string name="shortcut_shuffle_long">Shuffle all songs</string>
     <string name="shortcut_shuffle_short">Shuffle</string>
@@ -87,5 +89,8 @@
     <string name="library_tab_playlists">Playlists</string>
     <string name="library_tab_folders">Folders</string>
     <string name="library_tab_liked">Liked</string>
-
+    <string name="dash_library_playlist_title">Playlist</string>
+    <string name="setcat_language_arabic">Arabic</string>
+    <string name="setcat_language_norwegian_bokmal">Norwegian Bokmal</string>
+    <string name="setcat_language_turkish">Turkish</string>
 </resources>
